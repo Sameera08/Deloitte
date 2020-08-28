@@ -29,7 +29,7 @@ public class URLShortenerServiceImpl implements URLShortenerService {
 				UrlEntity urlEntity = new UrlEntity();
 				urlEntity.setUrl(url);
 				Optional<UrlEntity> existingkey=urlRepo.findByUkey(urlKey);
-				if(existingkey.isPresent() && existingkey.get().getUrl().equals(url)) {
+				if(existingkey.isPresent() && !existingkey.get().getUrl().equals(url)) {
 					Random random = new Random();
 					int randomNumber = random.nextInt(existingkey.get().getUid()) + 100;
 					urlKey=urlKey+randomNumber;
