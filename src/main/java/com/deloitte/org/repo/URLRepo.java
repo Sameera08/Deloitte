@@ -11,4 +11,6 @@ public interface URLRepo extends JpaRepository<UrlEntity,Integer>{
 
 	Optional<UrlEntity> findByUkey(Integer id);
 
+	UrlEntity findByUrl(String url);
+
 }
